@@ -1,27 +1,40 @@
 ﻿using MediatR;
 using System.Web.Mvc;
-using TDD_Practices.Dal;
-using TDD_Practices.Models;
+using TDD_Practices.Requests;
 
 namespace TDD_Practices.Controllers
 {
   [RoutePrefix("project")]
   public class ProjectController : Controller
   {
-    public ProjectController(IMediator mediator, IProjectRepository repo)
+    public ProjectController(IMediator mediator)
     {
-      _repo = repo;
-      _mediator = new Mediator();
+      _mediator = mediator;
     }
 
     [Route("{id:int}")]
-    public Project Get(int id)
+    [HttpGet]
+    [ActionName("Project")]
+    public ActionResult GetProject(int id)
     {
-      //_mediator.Send()
-      return _repo.Get(id);
+      var project = _mediator.Send(new GetProjectRequest { Id = id }).Result;
+      if (project == null)
+      {
+        return HttpNotFound($"Project with ID {id} not found");
+      }
+
+      return View(project);
     }
 
-    private readonly IProjectRepository _repo;
+    [Route("")]
+    [HttpGet]
+    [ActionName("ProjectsList")]
+    public ActionResult GetProjectsList()
+    {
+      var projects = _mediator.Send(new GetProjectsListRequest()).Result;
+      return View(projects);
+    }
+
     private readonly IMediator _mediator;
   }
 }
