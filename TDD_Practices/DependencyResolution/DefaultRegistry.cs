@@ -32,8 +32,16 @@ namespace TDD_Practices.DependencyResolution {
 			  scan.With(new ControllerConvention());
       });
 
+      For<RdLabDbContext>().Use(context => CreateNewContext(context));
       For<IEntityFactory>().Use<EntityFactory>().SetLifecycleTo(new SingletonLifecycle());
       For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new SingletonLifecycle());
+    }
+
+    public RdLabDbContext CreateNewContext(IContext context)
+    {
+      var myContext = new RdLabDbContext();
+      myContext.Configuration.ProxyCreationEnabled = false;
+      return myContext;
     }
 
     #endregion

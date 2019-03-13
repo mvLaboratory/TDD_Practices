@@ -7,19 +7,18 @@ namespace TDD_Practices.Dal
 {
   public class ProjectRepository : EntityRepository<Project>, IProjectRepository
   {
-    public ProjectRepository(IEntityFactory factory)
+    public ProjectRepository(RdLabDbContext context) : base(context)
     {
-      Initialize(factory.GetProject, 50);
     }
 
     public Project Get(int id)
     {
-      return GetAllQueriable().FirstOrDefault(proj => proj.Id == id);
+      return _context.Projects.FirstOrDefault(proj => proj.Id == id);
     }
 
     public IEnumerable<Project> GetAll()
     {
-      return GetAllQueriable().ToList();
+      return _context.Projects.ToList();
     }
   }
 }
