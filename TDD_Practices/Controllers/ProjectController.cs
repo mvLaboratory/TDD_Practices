@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Configuration;
+using MediatR;
 using System.Web.Mvc;
 using TDD_Practices.Requests;
 
@@ -23,6 +24,7 @@ namespace TDD_Practices.Controllers
         return HttpNotFound($"Project with ID {id} not found");
       }
 
+      var test = ConfigurationManager.AppSettings.Get("Env");
       return View(project);
     }
 
