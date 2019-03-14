@@ -13,12 +13,12 @@ namespace TDD_Practices.Dal
 
     public Project Get(int id)
     {
-      return _context.Projects.FirstOrDefault(proj => proj.Id == id);
+      return GetAllQueriable().FirstOrDefault(proj => proj.Id == id);
     }
 
     public IEnumerable<Project> GetAll()
     {
-      return _context.Projects.ToList();
+      return GetAllQueriable().ToList();
     }
   }
 }

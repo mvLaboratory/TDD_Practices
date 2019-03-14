@@ -12,8 +12,7 @@ namespace TDD_Practices.Dal
 
     public IQueryable<T> GetAllQueriable()
     {
-      throw new NotImplementedException();
-      //return db.AsQueryable();
+      return _context.Set<T>().AsNoTracking().AsQueryable();
     }
 
     protected readonly RdLabDbContext _context;
