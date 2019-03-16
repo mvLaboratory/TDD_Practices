@@ -27,6 +27,31 @@
         </dd>
 
     </dl>
+    <div>
+        <h2>
+            Documents
+        </h2>
+        <table class="table">
+            <tr>
+                <th>Id</th><th>Name</th><th>Path</th>
+            </tr>
+            @foreach (var doc in Model.Documents)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => doc.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => doc.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => doc.Path)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
 </div>
 <p>
     @Html.ActionLink("Back to List", "ProjectsList")

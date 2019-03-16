@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using TDD_Practices.Dal.Factories;
 using TDD_Practices.Models;
 
 namespace TDD_Practices.Dal
@@ -13,7 +13,7 @@ namespace TDD_Practices.Dal
 
     public Project Get(int id)
     {
-      return GetAllQueriable().FirstOrDefault(proj => proj.Id == id);
+      return GetAllQueriable().Include("Documents").FirstOrDefault(proj => proj.Id == id);
     }
 
     public IEnumerable<Project> GetAll()
