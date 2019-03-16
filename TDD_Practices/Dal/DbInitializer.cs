@@ -11,7 +11,7 @@ namespace TDD_Practices.Dal
 
     protected override void Seed(RdLabDbContext context)
     {
-      for (int i = 0; i < 100; i++)
+      for (int i = 0; i < 500; i++)
       {
         context.Projects.Add(_factory.GetProject());
       }
