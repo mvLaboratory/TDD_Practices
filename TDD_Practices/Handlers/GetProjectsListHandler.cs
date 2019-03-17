@@ -13,6 +13,11 @@ namespace TDD_Practices.Handlers
       _projectRepository = projectRepository;
     }
 
+    public IEnumerable<Project> CreateResponse(GetProjectsListRequest request)
+    {
+      return Handle(request);
+    }
+
     protected override IEnumerable<Project> Handle(GetProjectsListRequest request)
     {
       return _projectRepository.GetAll();
