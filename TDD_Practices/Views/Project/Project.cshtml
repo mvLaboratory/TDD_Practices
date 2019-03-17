@@ -33,7 +33,7 @@
         </h2>
         <table class="table">
             <tr>
-                <th>Id</th><th>Name</th><th>Path</th>
+                <th>Id</th><th>Name</th><th>Path</th><th>Updated</th>
             </tr>
             @foreach (var doc in Model.Documents)
             {
@@ -46,6 +46,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => doc.Path)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => doc.UpdateDate)
                     </td>
                 </tr>
             }

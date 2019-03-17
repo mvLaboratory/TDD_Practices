@@ -29,8 +29,7 @@ namespace TDD_Practices.Dal.Factories
     {
       var id = _randomizer.Next(2000000, 5000000);
       var name = $"Document {Guid.NewGuid()}";
-      //var modificationDate = new DateTime(2019, _randomizer.Next(1, 12), _randomizer.Next(1, 28), _randomizer.Next(1, 24), _randomizer.Next(0, 59), _randomizer.Next(0, 59));
-      var modificationDate = DateTime.UtcNow;
+      var modificationDate = new DateTime(2019, _randomizer.Next(1, 12), _randomizer.Next(1, 28), _randomizer.Next(1, 24), _randomizer.Next(0, 59), _randomizer.Next(0, 59));
       var extention = _randomizer.Next(0, 1) == 0 ? "pdf" : "tif";
       return new Document
       {
@@ -38,6 +37,7 @@ namespace TDD_Practices.Dal.Factories
         Id = id,
         Extention = extention,
         Name = name,
+        UpdateDate = modificationDate,
         Path = $"C://projectDocuments/{project.Id}/{name}.{extention}"
       };
     }

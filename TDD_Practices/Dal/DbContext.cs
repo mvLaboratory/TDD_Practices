@@ -15,8 +15,11 @@ namespace TDD_Practices.Dal
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
-      // configures one-to-many relationship
       modelBuilder.Entity<Project>().HasMany(x => x.Documents);
+      modelBuilder.Entity<Document>()
+        .Property(f => f.UpdateDate)
+        .HasColumnType("datetime2")
+        .HasPrecision(0);
     }
 }
 }

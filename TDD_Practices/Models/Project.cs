@@ -9,7 +9,6 @@ namespace TDD_Practices.Models
   {
     public string Name { get; set; }
     public int Summ { get; set; }
-    //public int Version { get; set; }
     public HashSet<Document> Documents { get; set; } = new HashSet<Document>();
   }
 }
