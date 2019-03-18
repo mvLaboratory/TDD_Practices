@@ -12,7 +12,7 @@ namespace NUnit.Tests
   public class GetProjectsListHandlerTest
   {
     [Test]
-    public void TestMethod()
+    public void TestsMethod()
     {
       //Arrange
       var projectRepo = MockRepository.GenerateMock<IProjectRepository>();
