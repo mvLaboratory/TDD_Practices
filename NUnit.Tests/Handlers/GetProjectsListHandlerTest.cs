@@ -6,13 +6,13 @@ using TDD_Practices.Handlers;
 using TDD_Practices.Models;
 using TDD_Practices.Requests;
 
-namespace NUnit.Tests
+namespace NUnit.Tests.Handlers
 {
   [TestFixture]
   public class GetProjectsListHandlerTest
   {
     [Test]
-    public void TestsMethod()
+    public void Handle_HappyPath()
     {
       //Arrange
       var projectRepo = MockRepository.GenerateMock<IProjectRepository>();
@@ -22,7 +22,7 @@ namespace NUnit.Tests
 
       projectRepo.Expect(repo => repo.GetAll())
         .Repeat.Once()
-        .Return(new List<Project> {new Project {Id = 1, Name = "test", Summ = 10}});
+        .Return(new List<Project> { new Project { Id = 1, Name = "test", Summ = 10 } });
 
       //Act
       var result = handler.CreateResponse(request);

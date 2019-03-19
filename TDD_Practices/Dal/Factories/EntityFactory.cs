@@ -30,18 +30,18 @@ namespace TDD_Practices.Dal.Factories
       var id = _randomizer.Next(2000000, 5000000);
       var name = $"Document {Guid.NewGuid()}";
       var modificationDate = new DateTime(2019, _randomizer.Next(1, 12), _randomizer.Next(1, 28), _randomizer.Next(1, 24), _randomizer.Next(0, 59), _randomizer.Next(0, 59));
-      var extention = _randomizer.Next(0, 1) == 0 ? "pdf" : "tif";
+      var extenstion = _randomizer.Next(0, 2) == 0 ? "pdf" : "tif";
       return new Document
       {
         Project = project,
         Id = id,
-        Extention = extention,
+        Extention = extenstion,
         Name = name,
         UpdateDate = modificationDate,
-        Path = $"C://projectDocuments/{project.Id}/{name}.{extention}"
+        Path = $"C://projectDocuments/{project.Id}/{name}.{extenstion}"
       };
     }
 
-    private Random _randomizer = new Random();
+    private readonly Random _randomizer = new Random();
   }
 }

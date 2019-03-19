@@ -7,5 +7,6 @@ namespace TDD_Practices.Dal
   {
     Project Get(int id);
     IEnumerable<Project> GetAll();
+    IEnumerable<Project> GetAllProjectsOnPage(int pageNumber, int itemsOnPage);
   }
 }

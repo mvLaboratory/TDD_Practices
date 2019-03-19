@@ -5,7 +5,7 @@ using TDD_Practices.Requests;
 
 namespace TDD_Practices.Handlers
 {
-  public class GetProjectsHandler : RequestHandler<GetProjectRequest, Project>
+  public class GetProjectsHandler : RequestHandlerBase<GetProjectRequest, Project>
   {
     public GetProjectsHandler(IProjectRepository projectRepository)
     {

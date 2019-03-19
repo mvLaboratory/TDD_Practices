@@ -20,5 +20,10 @@ namespace TDD_Practices.Dal
     {
       return GetAllQueriable().ToList();
     }
+
+    public IEnumerable<Project> GetAllProjectsOnPage(int pageNumber, int itemsOnPage)
+    {
+      return GetAllQueriable().Skip(pageNumber * itemsOnPage).Take(itemsOnPage).ToList();
+    }
   }
 }
