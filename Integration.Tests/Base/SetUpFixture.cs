@@ -14,8 +14,6 @@ namespace Integration.Tests.Base
     {
       Database.SetInitializer(new DropCreateDatabaseAlwaysAndSeed());
       Context.Database.Initialize(false);
-
-      //Service = null;
     }
   }
 }
