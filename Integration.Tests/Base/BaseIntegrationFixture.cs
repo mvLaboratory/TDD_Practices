@@ -2,29 +2,38 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Reflection;
 using MediatR;
 using NUnit.Framework;
 using StructureMap;
+using StructureMap.Pipeline;
 using TDD_Practices.Dal;
-using TDD_Practices.Handlers;
+using TDD_Practices.Dal.Factories;
+using TDD_Practices.DependencyResolution;
 
 namespace Integration.Tests.Base
 {
   public class BaseIntegrationFixture
   {
     protected RdLabDbContext Context => SetUpFixture.Context;
-    protected IMediator MediatorFake { get; }
     protected Container Container { get; }
-    //protected Dictionary<IRequest, RequestHandlerBase<,>>
     protected BaseIntegrationFixture()
     {
-      Container = new Container();
-      MediatorFake = new MediatorFake();
-    }
-
-    protected void SetUpHandler<TR, TH>()
-    {
-      //Container.Configure(_ => _.For<TR>().Use<TH>());
+      Container = new Container(cfg =>
+      {
+        cfg.For<RdLabDbContext>().Use(Context);
+        cfg.For<IEntityFactory>().Use<EntityFactory>().SetLifecycleTo(new SingletonLifecycle());
+        cfg.For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new SingletonLifecycle());
+        cfg.AddRegistry<DefaultRegistry>();
+        cfg.Scan(scanner =>
+        {
+          scanner.Assembly(Assembly.Load("TDD_Practices"));
+          scanner.ConnectImplementationsToTypesClosing(typeof(IRequestHandler<,>));
+          scanner.ConnectImplementationsToTypesClosing(typeof(INotificationHandler<>));
+        });
+        cfg.For<ServiceFactory>().Use<ServiceFactory>(ctx => ctx.GetInstance);
+        cfg.For<IMediator>().Use<Mediator>();
+      });
     }
 
     [TearDown]

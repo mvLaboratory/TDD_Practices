@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Integration.Tests.Base;
 using NUnit.Framework;
 using TDD_Practices.Controllers;
 using TDD_Practices.Dal;
 using TDD_Practices.Dal.Factories;
 using TDD_Practices.Handlers;
+using TDD_Practices.Models;
 using TDD_Practices.Requests;
 
 namespace Integration.Tests
@@ -27,17 +29,10 @@ namespace Integration.Tests
     [Test]
     public void TestMethod()
     {
-      var projRepo = new ProjectRepository(Context);
-      var handler = new GetProjectsListHandler(projRepo);
+      var controller = Container.GetInstance<ProjectController>();
+      var actualResult = controller.GetProjectsList();
 
-      var contrlr = new ProjectController();
-
-      var request = new GetProjectsListRequest();
-
-      var actualResult = handler.CreateResponse(request);
-
-      Assert.True(actualResult.Any());
-      Assert.True(actualResult.Count() == 10);
+      Assert.IsTrue(((IEnumerable<Project>)actualResult.Model).Count() == 10);
     }
 
     //TODO:: Add test about ID. Use Hardcode :)

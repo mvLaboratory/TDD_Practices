@@ -2,11 +2,11 @@
 
 namespace TDD_Practices.Handlers
 {
-  public abstract class RequestHandlerBase<T, TR> : RequestHandler<T, TR> where T : IRequest<TR>
+  public abstract class RequestHandlerBase<TRequest, TResponse> : RequestHandler<TRequest, TResponse>, IRequestHandler where TRequest : IRequest<TResponse>
   {
-    protected abstract override TR Handle(T request);
+    protected abstract override TResponse Handle(TRequest request);
 
-    public TR CreateResponse(T request)
+    public TResponse CreateResponse(TRequest request)
     {
       return Handle(request);
     }

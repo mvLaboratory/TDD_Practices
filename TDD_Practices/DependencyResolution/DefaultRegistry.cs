@@ -18,6 +18,7 @@
 using StructureMap.Pipeline;
 using TDD_Practices.Dal;
 using TDD_Practices.Dal.Factories;
+using TDD_Practices.Utils;
 
 namespace TDD_Practices.DependencyResolution {
   using StructureMap;
@@ -39,7 +40,7 @@ namespace TDD_Practices.DependencyResolution {
 
     public RdLabDbContext CreateNewContext(IContext context)
     {
-      var myContext = new RdLabDbContext("rdLabDb");
+      var myContext = new RdLabDbContext(AppSettingsManager.GetStringOrDefault("dbName", "rdLabDb"));
       myContext.Configuration.ProxyCreationEnabled = false;
       return myContext;
     }

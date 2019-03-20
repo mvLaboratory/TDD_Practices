@@ -30,7 +30,7 @@ namespace TDD_Practices.Controllers
     [Route("")]
     [HttpGet]
     [ActionName("ProjectsList")]
-    public ActionResult GetProjectsList()
+    public ViewResult GetProjectsList()
     {
       var projects = _mediator.Send(new GetProjectsListRequest()).Result;
       return View(projects);
