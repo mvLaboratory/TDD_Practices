@@ -3,16 +3,13 @@ using System.Linq;
 using Integration.Tests.Base;
 using NUnit.Framework;
 using TDD_Practices.Controllers;
-using TDD_Practices.Dal;
 using TDD_Practices.Dal.Factories;
-using TDD_Practices.Handlers;
 using TDD_Practices.Models;
-using TDD_Practices.Requests;
 
-namespace Integration.Tests
+namespace Integration.Tests.Controller
 {
   [TestFixture]
-  public class TestClass : BaseIntegrationFixture
+  public class ProjectControllerTest : BaseIntegrationFixture
   {
     [OneTimeSetUp]
     public void SetUp()
@@ -27,10 +24,19 @@ namespace Integration.Tests
     }
 
     [Test]
-    public void TestMethod()
+    public void GetProjectsList_HappyPath()
     {
       var controller = Container.GetInstance<ProjectController>();
       var actualResult = controller.GetProjectsList();
+
+      Assert.IsTrue(((IEnumerable<Project>)actualResult.Model).Count() == 10);
+    }
+
+    [Test]
+    public void GetProjectById_HappyPath()
+    {
+      var controller = Container.GetInstance<ProjectController>();
+      var actualResult = controller.GetProject(124);
 
       Assert.IsTrue(((IEnumerable<Project>)actualResult.Model).Count() == 10);
     }

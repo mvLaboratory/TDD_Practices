@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Web;
 using MediatR;
 using System.Web.Mvc;
 using TDD_Practices.Requests;
@@ -16,12 +17,14 @@ namespace TDD_Practices.Controllers
     [Route("{id:int}")]
     [HttpGet]
     [ActionName("Project")]
-    public ActionResult GetProject(int id)
+    public ViewResult GetProject(int id)
     {
       var project = _mediator.Send(new GetProjectRequest { Id = id }).Result;
       if (project == null)
       {
-        return HttpNotFound($"Project with ID {id} not found");
+        return View("~/Views/Errors/NotFindView.cshtml");
+        //throw new HttpException
+        //return HttpNotFound($"Project with ID {id} not found");
       }
 
       return View(project);

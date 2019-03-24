@@ -77,9 +77,8 @@
   <ItemGroup>
     <Compile Include="Base\BaseIntegrationFixture.cs" />
     <Compile Include="Base\DropCreateDatabaseAlwaysAndSeed .cs" />
-    <Compile Include="Base\MediatorFake.cs" />
     <Compile Include="Base\SetUpFixture.cs" />
-    <Compile Include="TestClass.cs" />
+    <Compile Include="Controller\ProjectControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
