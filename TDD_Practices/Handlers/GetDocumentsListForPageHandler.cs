@@ -16,7 +16,7 @@ namespace TDD_Practices.Handlers
     protected override IEnumerable<Document> Handle(GetDocumentsListWithPaginationRequest request)
     {
       var itemsOnPage = request.ItemsOnPage ?? AppSettingsManager.GetIntegerOrDefault("defaultItemsOnPage", 20);
-      return _documentRepository.GetAll();
+      return _documentRepository.GetWithPagination(request.PageNumber, itemsOnPage);
     }
 
     private readonly IDocumentRepository _documentRepository;

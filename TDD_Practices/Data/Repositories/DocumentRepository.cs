@@ -17,7 +17,11 @@ namespace TDD_Practices.Data.Repositories
 
     public IEnumerable<Document> GetWithPagination(int pageNumber, int itemsOnPage)
     {
-      return GetAllQueryable().Skip(pageNumber * itemsOnPage).Take(itemsOnPage).ToList();
+      return GetAllQueryable()
+        .OrderByDescending(doc => doc.UpdateDate)
+        .Skip(pageNumber * itemsOnPage)
+        .Take(itemsOnPage)
+        .ToList();
     }
   }
 }

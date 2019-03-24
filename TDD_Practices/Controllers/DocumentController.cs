@@ -6,7 +6,6 @@ using TDD_Practices.Requests;
 
 namespace TDD_Practices.Controllers
 {
-  [Route("api/documents")]
   public class DocumentController : ApiController
   {
     public DocumentController(IMediator mediator)
@@ -15,7 +14,7 @@ namespace TDD_Practices.Controllers
     }
 
     [HttpGet]
-    [Route("")]
+    [Route("api/documents")]
     public IEnumerable<Document>GetAllDocuments()
     {
       var result = _mediator.Send(new GetDocumentsListRequest()).Result;
@@ -23,7 +22,7 @@ namespace TDD_Practices.Controllers
     }
 
     [HttpGet]
-    [Route("page/{pageNumber:int}")]
+    [Route("api/documents/page/{pageNumber:int}")]
     public IEnumerable<Document> GetAllForPage(int pageNumber)
     {
       var result = _mediator.Send(new GetDocumentsListWithPaginationRequest {PageNumber = pageNumber}).Result;
