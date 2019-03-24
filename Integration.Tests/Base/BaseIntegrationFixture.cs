@@ -7,8 +7,9 @@ using MediatR;
 using NUnit.Framework;
 using StructureMap;
 using StructureMap.Pipeline;
-using TDD_Practices.Dal;
-using TDD_Practices.Dal.Factories;
+using TDD_Practices.Data;
+using TDD_Practices.Data.Factories;
+using TDD_Practices.Data.Repositories;
 using TDD_Practices.DependencyResolution;
 
 namespace Integration.Tests.Base

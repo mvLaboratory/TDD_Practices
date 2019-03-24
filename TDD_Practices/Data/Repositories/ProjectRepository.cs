@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using TDD_Practices.Models;
 
-namespace TDD_Practices.Dal
+namespace TDD_Practices.Data.Repositories
 {
   public class ProjectRepository : EntityRepository<Project>, IProjectRepository
   {
@@ -13,17 +13,17 @@ namespace TDD_Practices.Dal
 
     public Project Get(int id)
     {
-      return GetAllQueriable().Include("Documents").FirstOrDefault(proj => proj.Id == id);
+      return GetAllQueryable().Include("Documents").FirstOrDefault(proj => proj.Id == id);
     }
 
     public IEnumerable<Project> GetAll()
     {
-      return GetAllQueriable().ToList();
+      return GetAllQueryable().ToList();
     }
 
     public IEnumerable<Project> GetAllProjectsOnPage(int pageNumber, int itemsOnPage)
     {
-      return GetAllQueriable().Skip(pageNumber * itemsOnPage).Take(itemsOnPage).ToList();
+      return GetAllQueryable().Skip(pageNumber * itemsOnPage).Take(itemsOnPage).ToList();
     }
   }
 }

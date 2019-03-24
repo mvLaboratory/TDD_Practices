@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using TDD_Practices.Models;
 
-namespace TDD_Practices.Dal.Factories
+namespace TDD_Practices.Data.Factories
 {
   public class EntityFactory : IEntityFactory
   {
     public Project GetProject()
     {
-      var documentCout = _randomizer.Next(10, 50);
+      var documentCount = _randomizer.Next(10, 50);
       var id = _randomizer.Next(2000000, 5000000);
       var project = new Project
       {
         Id = id,
         Name = $"Project {Guid.NewGuid()}",
-        Summ = _randomizer.Next(1, 1000) * 10000,
+        Sum = _randomizer.Next(1, 1000) * 10000,
         Documents = new HashSet<Document>()
       };
-      for (int i = 0; i < documentCout; i++)
+      for (int i = 0; i < documentCount; i++)
       {
         project.Documents.Add(GetDocument(project));
       }
@@ -35,7 +35,7 @@ namespace TDD_Practices.Dal.Factories
       {
         Project = project,
         Id = id,
-        Extention = extenstion,
+        Extension = extenstion,
         Name = name,
         UpdateDate = modificationDate,
         Path = $"C://projectDocuments/{project.Id}/{name}.{extenstion}"

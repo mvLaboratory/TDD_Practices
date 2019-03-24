@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-using System.Web;
-using MediatR;
+﻿using MediatR;
 using System.Web.Mvc;
 using TDD_Practices.Requests;
 
@@ -23,8 +21,6 @@ namespace TDD_Practices.Controllers
       if (project == null)
       {
         return View("~/Views/Errors/NotFindView.cshtml");
-        //throw new HttpException
-        //return HttpNotFound($"Project with ID {id} not found");
       }
 
       return View(project);

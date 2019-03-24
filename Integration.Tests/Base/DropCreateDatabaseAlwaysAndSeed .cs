@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using TDD_Practices.Dal;
-using TDD_Practices.Dal.Factories;
+using TDD_Practices.Data;
+using TDD_Practices.Data.Factories;
 
 namespace Integration.Tests.Base
 {

@@ -3,7 +3,7 @@ using System.Linq;
 using Integration.Tests.Base;
 using NUnit.Framework;
 using TDD_Practices.Controllers;
-using TDD_Practices.Dal.Factories;
+using TDD_Practices.Data.Factories;
 using TDD_Practices.Models;
 
 namespace Integration.Tests.Controller
@@ -40,7 +40,5 @@ namespace Integration.Tests.Controller
 
       Assert.IsTrue(((IEnumerable<Project>)actualResult.Model).Count() == 10);
     }
-
-    //TODO:: Add test about ID. Use Hardcode :)
   }
 }

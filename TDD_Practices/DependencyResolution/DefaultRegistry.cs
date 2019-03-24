@@ -16,8 +16,9 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using StructureMap.Pipeline;
-using TDD_Practices.Dal;
-using TDD_Practices.Dal.Factories;
+using TDD_Practices.Data;
+using TDD_Practices.Data.Factories;
+using TDD_Practices.Data.Repositories;
 using TDD_Practices.Utils;
 
 namespace TDD_Practices.DependencyResolution {
@@ -35,7 +36,7 @@ namespace TDD_Practices.DependencyResolution {
 
       For<RdLabDbContext>().Use(context => CreateNewContext(context)).SetLifecycleTo(new TransientLifecycle());
       For<IEntityFactory>().Use<EntityFactory>().SetLifecycleTo(new SingletonLifecycle());
-      For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new SingletonLifecycle());
+      //For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new SingletonLifecycle());
     }
 
     public RdLabDbContext CreateNewContext(IContext context)

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using TDD_Practices.Dal;
+using TDD_Practices.Data;
 
 namespace TDD_Practices.Models
 {
@@ -8,7 +8,7 @@ namespace TDD_Practices.Models
   public class Project : Entity
   {
     public string Name { get; set; }
-    public int Summ { get; set; }
+    public int Sum { get; set; }
     public HashSet<Document> Documents { get; set; } = new HashSet<Document>();
   }
 }

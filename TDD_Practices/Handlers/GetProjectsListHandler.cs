@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MediatR;
-using TDD_Practices.Dal;
+using TDD_Practices.Data.Repositories;
 using TDD_Practices.Models;
 using TDD_Practices.Requests;
 

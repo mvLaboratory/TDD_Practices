@@ -1,6 +1,6 @@
 ﻿using TDD_Practices.Models;
 
-namespace TDD_Practices.Dal.Factories
+namespace TDD_Practices.Data.Factories
 {
   public interface IEntityFactory
   {

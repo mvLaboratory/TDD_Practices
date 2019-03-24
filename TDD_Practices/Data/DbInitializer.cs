@@ -1,6 +1,6 @@
-﻿using TDD_Practices.Dal.Factories;
+﻿using TDD_Practices.Data.Factories;
 
-namespace TDD_Practices.Dal
+namespace TDD_Practices.Data
 {
   public class DbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<RdLabDbContext>
   {

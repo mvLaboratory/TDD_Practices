@@ -1,8 +1,7 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using TDD_Practices.Models;
 
-namespace TDD_Practices.Dal
+namespace TDD_Practices.Data
 {
   public class RdLabDbContext : DbContext
   {

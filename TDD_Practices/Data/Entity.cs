@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TDD_Practices.Dal
+namespace TDD_Practices.Data
 {
   public abstract class Entity
   {

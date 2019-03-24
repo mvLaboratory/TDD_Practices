@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using NUnit.Framework;
-using TDD_Practices.Dal;
+using TDD_Practices.Data;
 
 namespace Integration.Tests.Base
 {

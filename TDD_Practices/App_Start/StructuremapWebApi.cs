@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ControllerConvention.cs" company="Web Advanced">
+// <copyright file="StructuremapWebApi.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,31 +16,15 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Web.Http;
+using TDD_Practices.DependencyResolution;
 
-namespace TDD_Practices.DependencyResolution {
-  using System;
-  using System.Web.Mvc;
-  using StructureMap;
-  using StructureMap.Graph;
-  using StructureMap.Graph.Scanning;
-  using StructureMap.Pipeline;
-  using StructureMap.TypeRules;
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(TDD_Practices.App_Start.StructuremapWebApi), "Start")]
 
-  public class ControllerConvention : IRegistrationConvention {
-    #region Public Methods and Operators
-
-    public void Process(Type type, Registry registry) {
-      if ((type.CanBeCastTo<Controller>() || type.CanBeCastTo<ApiController>())
-          && !type.IsAbstract) {
-          registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
-      }
+namespace TDD_Practices.App_Start {
+    public static class StructuremapWebApi {
+        public static void Start() {
+			var container = StructuremapMvc.StructureMapDependencyScope.Container;
+            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
+        }
     }
-
-    public void ScanTypes(TypeSet types, Registry registry)
-    {
-
-    }
-
-    #endregion
-  }
 }
