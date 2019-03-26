@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using TDD_Practices.Models;
 
 namespace TDD_Practices.Data.Factories
@@ -41,6 +42,18 @@ namespace TDD_Practices.Data.Factories
         Path = $"C://projectDocuments/{project.Id}/{name}.{extenstion}"
       };
     }
+
+    public DocumentIndex GetDocIndex(int documentId)
+    {
+      var textBuilder = new StringBuilder();
+      int length = _randomizer.Next(10, 25);
+      for (int i = 0; i < length; i++)
+      {
+        textBuilder.Append((Char) _randomizer.Next(97, 122));
+      }
+
+      return new DocumentIndex {DocumentId = documentId, DocText = textBuilder.ToString()};
+    } 
 
     private readonly Random _randomizer = new Random();
   }

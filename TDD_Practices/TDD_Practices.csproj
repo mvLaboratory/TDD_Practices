@@ -184,6 +184,8 @@
     <Compile Include="Data\Factories\EntityFactory.cs" />
     <Compile Include="Data\EntityRepository.cs" />
     <Compile Include="Data\Factories\IEntityFactory.cs" />
+    <Compile Include="Data\Repositories\DocumentIndexRepository.cs" />
+    <Compile Include="Data\Repositories\IDocumentIndexRepository.cs" />
     <Compile Include="Data\Repositories\IDocumentRepository.cs" />
     <Compile Include="Data\Repositories\IProjectRepository.cs" />
     <Compile Include="Data\Repositories\DocumentRepository.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\SearchDocumentsHandler.cs" />
     <Compile Include="Handlers\GetDocumentsListHandle.cs" />
     <Compile Include="Handlers\IRequestHandler.cs" />
     <Compile Include="Handlers\RequestHandlerBase.cs" />
@@ -205,9 +208,11 @@
     <Compile Include="Handlers\GetProjectsListHandler.cs" />
     <Compile Include="Handlers\GetProjectsHandler.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentIndex.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\GetDocumentListForPageRequest.cs" />
+    <Compile Include="Requests\SearchDocumentsRequest.cs" />
     <Compile Include="Requests\GetDocumentsListRequest.cs" />
     <Compile Include="Requests\GetProjectsListRequest.cs" />
     <Compile Include="Requests\GetProjectRequest.cs" />

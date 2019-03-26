@@ -5,5 +5,6 @@ namespace TDD_Practices.Data.Factories
   public interface IEntityFactory
   {
     Project GetProject();
+    DocumentIndex GetDocIndex(int documentId);
   }
 }

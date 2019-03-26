@@ -29,6 +29,14 @@ namespace TDD_Practices.Controllers
       return result;
     }
 
+    [HttpGet]
+    [Route("api/documents/search/{text}")]
+    public IEnumerable<Document> Search(string text)
+    {
+      var result = _mediator.Send(new SearchDocumentsRequest { Text = text }).Result;
+      return result;
+    }
+
     private readonly IMediator _mediator;
   }
 }

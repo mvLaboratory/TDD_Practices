@@ -11,6 +11,7 @@ namespace TDD_Practices.Data
 
     public DbSet<Project> Projects { get; set; }
     public DbSet<Document> Documents { get; set; }
+    public DbSet<DocumentIndex> DocumentIndex { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

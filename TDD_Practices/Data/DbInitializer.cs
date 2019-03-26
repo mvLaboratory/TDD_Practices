@@ -1,4 +1,7 @@
-﻿using TDD_Practices.Data.Factories;
+﻿using System.Collections.Generic;
+using TDD_Practices.Data.Factories;
+using TDD_Practices.Models;
+using WebGrease.Css.Extensions;
 
 namespace TDD_Practices.Data
 {
@@ -11,11 +14,16 @@ namespace TDD_Practices.Data
 
     protected override void Seed(RdLabDbContext context)
     {
-      for (int i = 0; i < 1500; i++)
+      var projects = new List<Project>();
+      for (int i = 0; i < 15; i++)
       {
-        context.Projects.Add(_factory.GetProject());
+        var proj = _factory.GetProject();
+        context.Projects.Add(proj);
+        projects.Add(proj);
       }
 
+      context.SaveChanges();
+      projects.ForEach(proj => proj.Documents.ForEach(doc => context.DocumentIndex.Add(_factory.GetDocIndex(doc.Id))));
       context.SaveChanges();
     }
 

@@ -15,6 +15,11 @@ namespace TDD_Practices.Data.Repositories
       return GetAllQueryable().ToList();
     }
 
+    public IEnumerable<Document> Get(List<int> ids)
+    {
+      return GetAllQueryable().Where(doc => ids.Contains(doc.Id)).ToList();
+    }
+
     public IEnumerable<Document> GetWithPagination(int pageNumber, int itemsOnPage)
     {
       return GetAllQueryable()
