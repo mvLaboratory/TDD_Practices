@@ -14,11 +14,10 @@ namespace TDD_Practices
     {
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
       routes.MapMvcAttributeRoutes();
-      //routes.MapHttpRoute("");
       routes.MapRoute(
           name: "Default",
-          url: "{controller}/{action}/{id}",
-          defaults: new { controller = "Home", action = "Get", id = UrlParameter.Optional }
+          url: "{controller}/{action}",
+          defaults: new { controller = "project", action = "index"}
       );
 
 

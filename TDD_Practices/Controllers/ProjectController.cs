@@ -32,7 +32,12 @@ namespace TDD_Practices.Controllers
     public ViewResult GetProjectsList()
     {
       var projects = _mediator.Send(new GetProjectsListRequest()).Result;
-      return View(projects);
+      return View("~/Views/Project/ProjectsList.cshtml", projects);
+    }
+
+    public ViewResult Index()
+    {
+      return GetProjectsList();
     }
 
     private readonly IMediator _mediator;
