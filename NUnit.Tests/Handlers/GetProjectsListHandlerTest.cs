@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
-using TDD_Practices.Data.Repositories;
+using Tdd.Data.Repositories;
+using Tdd.Models;
 using TDD_Practices.Handlers;
-using TDD_Practices.Models;
 using TDD_Practices.Requests;
 
 namespace NUnit.Tests.Handlers

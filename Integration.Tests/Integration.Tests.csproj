@@ -85,6 +85,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tdd.Data\Tdd.Data.csproj">
+      <Project>{100B945D-6D5C-40FE-BC32-F11E44C2FAAC}</Project>
+      <Name>Tdd.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdd.Models\Tdd.Models.csproj">
+      <Project>{C36A91EA-6739-4622-B200-BB52D252C999}</Project>
+      <Name>Tdd.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TDD_Practices\TDD_Practices.csproj">
       <Project>{DB3EC7E2-1888-493D-BDB1-A510997EE714}</Project>
       <Name>TDD_Practices</Name>

@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using TDD_Practices.Data;
+using Tdd.Data;
 using TDD_Practices.Data.Factories;
 
 namespace Integration.Tests.Base

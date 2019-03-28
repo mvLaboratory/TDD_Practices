@@ -2,9 +2,9 @@
 using System.Linq;
 using Integration.Tests.Base;
 using NUnit.Framework;
+using Tdd.Models;
 using TDD_Practices.Controllers;
 using TDD_Practices.Data.Factories;
-using TDD_Practices.Models;
 
 namespace Integration.Tests.Controller
 {

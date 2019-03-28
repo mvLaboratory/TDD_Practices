@@ -28,6 +28,8 @@ namespace TDD_Practices.DependencyResolution {
         cfg.Scan(scanner =>
         {
           scanner.TheCallingAssembly(); // Our assembly with requests & handlers
+          scanner.Assembly("Tdd.Data");
+          scanner.Assembly("Tdd.Models");
           scanner.ConnectImplementationsToTypesClosing(typeof(IRequestHandler<,>));
           scanner.ConnectImplementationsToTypesClosing(typeof(INotificationHandler<>));
         });

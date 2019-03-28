@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MediatR;
-using TDD_Practices.Models;
+using Tdd.Models;
 
 namespace TDD_Practices.Requests
 {

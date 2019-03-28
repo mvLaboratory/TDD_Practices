@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TDD_Practices.Data.Repositories;
-using TDD_Practices.Models;
+using Tdd.Data.Repositories;
+using Tdd.Models;
 using TDD_Practices.Requests;
 
 namespace TDD_Practices.Handlers

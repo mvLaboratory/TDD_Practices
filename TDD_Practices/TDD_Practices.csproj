@@ -178,18 +178,6 @@
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
-    <Compile Include="Data\RdLabDbContext.cs" />
-    <Compile Include="Data\DbInitializer.cs" />
-    <Compile Include="Data\Entity.cs" />
-    <Compile Include="Data\Factories\EntityFactory.cs" />
-    <Compile Include="Data\EntityRepository.cs" />
-    <Compile Include="Data\Factories\IEntityFactory.cs" />
-    <Compile Include="Data\Repositories\DocumentIndexRepository.cs" />
-    <Compile Include="Data\Repositories\IDocumentIndexRepository.cs" />
-    <Compile Include="Data\Repositories\IDocumentRepository.cs" />
-    <Compile Include="Data\Repositories\IProjectRepository.cs" />
-    <Compile Include="Data\Repositories\DocumentRepository.cs" />
-    <Compile Include="Data\Repositories\ProjectRepository.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -207,9 +195,6 @@
     <Compile Include="Handlers\GetDocumentsListForPageHandler.cs" />
     <Compile Include="Handlers\GetProjectsListHandler.cs" />
     <Compile Include="Handlers\GetProjectsHandler.cs" />
-    <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\DocumentIndex.cs" />
-    <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\GetDocumentListForPageRequest.cs" />
     <Compile Include="Requests\SearchDocumentsRequest.cs" />
@@ -276,6 +261,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tdd.Data\Tdd.Data.csproj">
+      <Project>{100B945D-6D5C-40FE-BC32-F11E44C2FAAC}</Project>
+      <Name>Tdd.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdd.Models\Tdd.Models.csproj">
+      <Project>{C36A91EA-6739-4622-B200-BB52D252C999}</Project>
+      <Name>Tdd.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

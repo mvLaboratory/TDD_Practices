@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using TDD_Practices.Data;
 
-namespace TDD_Practices.Models
+namespace Tdd.Models
 {
   [Table("Documents")]
   public class Document : Entity

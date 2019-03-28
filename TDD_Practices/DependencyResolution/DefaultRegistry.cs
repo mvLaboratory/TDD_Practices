@@ -15,28 +15,34 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Reflection;
 using StructureMap.Pipeline;
-using TDD_Practices.Data;
+using Tdd.Data.Repositories;
 using TDD_Practices.Data.Factories;
-using TDD_Practices.Data.Repositories;
 using TDD_Practices.Utils;
 
 namespace TDD_Practices.DependencyResolution {
   using StructureMap;
-	
+  using Tdd.Data;
+  using Tdd.Data.Factories;
+
   public class DefaultRegistry : Registry {
     #region Constructors and Destructors
 
     public DefaultRegistry() {
       Scan(scan => {
         scan.TheCallingAssembly();
+        scan.Assembly("Tdd.Data");
+        scan.Assembly("Tdd.Models");
         scan.WithDefaultConventions();
 			  scan.With(new ControllerConvention());
       });
 
       For<RdLabDbContext>().Use(context => CreateNewContext(context)).SetLifecycleTo(new TransientLifecycle());
       For<IEntityFactory>().Use<EntityFactory>().SetLifecycleTo(new SingletonLifecycle());
-      //For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new SingletonLifecycle());
+      For<IDocumentRepository>().Use<DocumentRepository>().SetLifecycleTo(new TransientLifecycle());
+      For<IDocumentIndexRepository>().Use<DocumentIndexRepository>().SetLifecycleTo(new TransientLifecycle());
+      For<IProjectRepository>().Use<ProjectRepository>().SetLifecycleTo(new TransientLifecycle());
     }
 
     public RdLabDbContext CreateNewContext(IContext context)

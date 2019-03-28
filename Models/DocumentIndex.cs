@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using TDD_Practices.Data;
+using Models;
 
 namespace TDD_Practices.Models
 {

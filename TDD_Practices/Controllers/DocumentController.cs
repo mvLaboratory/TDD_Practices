@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using MediatR;
-using TDD_Practices.Models;
+using Tdd.Models;
 using TDD_Practices.Requests;
 
 namespace TDD_Practices.Controllers
