@@ -202,6 +202,7 @@
     <Compile Include="Requests\GetProjectsListRequest.cs" />
     <Compile Include="Requests\GetProjectRequest.cs" />
     <Compile Include="Utils\AppSettingsManager.cs" />
+    <Compile Include="Utils\EnumerableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
