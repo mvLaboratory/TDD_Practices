@@ -15,6 +15,16 @@ namespace Tdd.Data.Repositories
       return GetAllQueryable().ToList();
     }
 
+    public IEnumerable<Document> GetProjectDocuments(int projectId)
+    {
+      return GetAllQueryable().Where(doc => doc.Project.Id == projectId).ToList();
+    }
+
+    public IEnumerable<Document> GetProjectDocumentsByDocIds(int projectId, List<int> ids)
+    {
+      return GetAllQueryable().Where(doc => doc.Project.Id == projectId && ids.Contains(doc.Id)).ToList();
+    }
+    
     public IEnumerable<Document> Get(List<int> ids)
     {
       return GetAllQueryable().Where(doc => ids.Contains(doc.Id)).ToList();

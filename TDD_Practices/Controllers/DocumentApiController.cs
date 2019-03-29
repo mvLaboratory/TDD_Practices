@@ -2,22 +2,32 @@
 using System.Web.Http;
 using MediatR;
 using Tdd.Models;
+using Tdd.Models.Dto;
+using TDD_Practices.Commands;
 using TDD_Practices.Requests;
 
 namespace TDD_Practices.Controllers
 {
-  public class DocumentController : ApiController
+  public class DocumentApiController : ApiController
   {
-    public DocumentController(IMediator mediator)
+    public DocumentApiController(IMediator mediator)
     {
       _mediator = mediator;
     }
 
     [HttpGet]
-    [Route("api/documents")]
-    public IEnumerable<Document>GetAllDocuments()
+    [Route("api/{projectId:int}/documents")]
+    public IEnumerable<Document>GetAllDocuments(int projectId)
     {
-      var result = _mediator.Send(new GetDocumentsListRequest()).Result;
+      var result = _mediator.Send(new GetDocumentsListRequest {ProjectId = projectId}).Result;
+      return result;
+    }
+
+    [HttpPost]
+    [Route("api/{projectId:int}/documents/tracked")]
+    public IEnumerable<Document> TrackDocuments(int projectId, [FromBody]IdListDto docIds)
+    {
+      var result = _mediator.Send(new TrackDocumentsListCommand { ProjectId = projectId, DocumentIds = docIds.Ids }).Result;
       return result;
     }
 

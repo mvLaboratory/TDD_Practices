@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\GetProjectsListHandlerTest.cs" />
+    <Compile Include="Handlers\TrackDocumentsListHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

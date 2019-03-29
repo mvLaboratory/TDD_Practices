@@ -17,7 +17,7 @@ namespace TDD_Practices.Controllers
     [ActionName("Project")]
     public ViewResult GetProject(int id)
     {
-      var project = _mediator.Send(new GetProjectRequest { Id = id }).Result;
+      var project = _mediator.Send(new GetProjectRequest { ProjectId = id }).Result;
       if (project == null)
       {
         return View("~/Views/Errors/NotFindView.cshtml");

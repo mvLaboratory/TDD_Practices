@@ -13,7 +13,7 @@ namespace TDD_Practices.Handlers
 
     protected override Project Handle(GetProjectRequest request)
     {
-      return _projectRepository.Get(request.Id);
+      return _projectRepository.Get(request.ProjectId);
     }
 
     private readonly IProjectRepository _projectRepository;

@@ -3,8 +3,7 @@ using Tdd.Models;
 
 namespace TDD_Practices.Requests
 {
-  public class GetProjectRequest: IRequest<Project>
+  public class GetProjectRequest: ProjectBaseRequest<Project>
   {
-    public int Id { get; set; }
   }
 }
