@@ -12,13 +12,15 @@ namespace TDD_Practices.Utils
 
     public static int GetIntegerOrDefault(string appSettingName, int defaultValue)
     {
-      return int.TryParse(ConfigurationManager.AppSettings[appSettingName], out var result)
+      int result;
+      return int.TryParse(ConfigurationManager.AppSettings[appSettingName], out result)
         ? result : defaultValue;
     }
 
     public static bool GetBooleanOrDefault(string appSettingName, bool defaultValue)
     {
-      return bool.TryParse(ConfigurationManager.AppSettings[appSettingName], out var result) 
+      bool result;
+      return bool.TryParse(ConfigurationManager.AppSettings[appSettingName], out result) 
         ? result : defaultValue;
     }
   }

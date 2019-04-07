@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -47,7 +48,7 @@ namespace NUnit.Tests.Handlers
     }
 
     [Test]
-    public void Handle_EmptyIds_EmptyResult()
+    public void Handle_EmptyDocumentsIds_ConstructorInit_EmptyResult()
     {
       //Arrange
       var projectId = 1;
@@ -64,6 +65,26 @@ namespace NUnit.Tests.Handlers
       //Assert
       CollectionAssert.AreEquivalent(expectedResult, actualResult);
       _docRepo.VerifyAllExpectations();
+    }
+
+    [Test]
+    public void Handle_EmptyDocumentsIds_BodyInit_ArgumentException()
+    {
+      //Arrange
+      var projectId = 1;
+      var expectedResult = new List<Document>();
+      var command = new TrackDocumentsListCommand()
+      {
+        ProjectId = projectId
+      };
+      _docRepo.Expect(repo =>
+          repo.GetProjectDocumentsByDocIds(Arg<int>.Is.Equal(projectId), Arg<List<int>>.Is.Equal(new List<int>())))
+        .Repeat.Never();
+
+      //Act //Assert
+      //Assert.Throws<Exception>(() => _handler.CreateResponse(command));
+
+      Assert.Catch<Exception>(() => _handler.CreateResponse(command));
     }
 
     [TearDown]

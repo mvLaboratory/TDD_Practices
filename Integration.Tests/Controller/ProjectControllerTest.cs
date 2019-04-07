@@ -39,6 +39,8 @@ namespace Integration.Tests.Controller
       var actualResult = controller.GetProject(124);
 
       Assert.IsTrue(((IEnumerable<Project>)actualResult.Model).Count() == 10);
+
+      Context.Documents
     }
   }
 }
