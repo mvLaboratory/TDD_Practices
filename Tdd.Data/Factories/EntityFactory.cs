@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tdd.Data.Factories;
 using Tdd.Models;
+using Tdd.Models.Enums;
 
-namespace TDD_Practices.Data.Factories
+namespace Tdd.Data.Factories
 {
   public class EntityFactory : IEntityFactory
   {
@@ -16,6 +16,7 @@ namespace TDD_Practices.Data.Factories
       {
         Id = id,
         Name = $"Project {Guid.NewGuid()}",
+        ProjectType = (ProjectType)_randomizer.Next(1, 3),
         Sum = _randomizer.Next(1, 1000) * 10000,
         Documents = new HashSet<Document>()
       };

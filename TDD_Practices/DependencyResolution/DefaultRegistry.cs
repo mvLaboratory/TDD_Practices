@@ -18,7 +18,6 @@
 using System.Reflection;
 using StructureMap.Pipeline;
 using Tdd.Data.Repositories;
-using TDD_Practices.Data.Factories;
 using TDD_Practices.Utils;
 
 namespace TDD_Practices.DependencyResolution {

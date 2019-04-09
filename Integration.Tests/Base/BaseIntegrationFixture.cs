@@ -10,7 +10,6 @@ using StructureMap.Pipeline;
 using Tdd.Data;
 using Tdd.Data.Factories;
 using Tdd.Data.Repositories;
-using TDD_Practices.Data.Factories;
 using TDD_Practices.DependencyResolution;
 
 namespace Integration.Tests.Base

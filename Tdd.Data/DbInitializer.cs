@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Linq;
 using Tdd.Data.Factories;
 using Tdd.Models;
-using TDD_Practices.Data.Factories;
 
 namespace Tdd.Data
 {
